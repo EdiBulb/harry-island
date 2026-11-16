@@ -134,6 +134,22 @@
   .phone .top .close{margin-left:auto;border:none;background:#fff;border-radius:50%;width:34px;height:34px;font-size:16px;color:var(--brown);cursor:pointer;flex:none}
   .hud .title{margin:0}
   .honeypot{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+  /* ---------- 편지 승부차기 ---------- */
+  .pk{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;background:#c9f0f2;animation:pkIn .25s ease-out}
+  @keyframes pkIn{from{opacity:0;transform:scale(1.03)}}
+  .pk-top{display:flex;gap:10px;align-items:flex-start;padding:max(12px,env(safe-area-inset-top)) 16px 8px;width:min(100%,520px);margin:0 auto;position:relative;z-index:1}
+  .pk-top h2{margin:0;font-size:20px;color:var(--brown)}
+  .pk-talk{margin-top:4px;background:var(--cream);border-radius:14px;padding:6px 10px;font-size:13.5px;box-shadow:0 2px 0 rgba(0,0,0,.08);color:var(--brown)}
+  .pk .close{margin-left:auto;border:none;background:var(--cream);border-radius:50%;width:36px;height:36px;font-size:16px;color:var(--brown);cursor:pointer;flex:none;box-shadow:0 2px 0 rgba(0,0,0,.1)}
+  .pk-canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;display:block}
+  @media (min-width:560px){.pk-canvas{left:50%;width:520px;transform:translateX(-50%)}}
+  .pk-bottom{margin-top:auto;position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:8px;padding:0 16px max(16px,env(safe-area-inset-bottom));pointer-events:none}
+  .pk-bottom > *{pointer-events:auto}
+  .pk-status{background:rgba(255,248,231,.92);border-radius:14px;padding:7px 12px;font-family:"Jua";font-size:14px;color:var(--brown);text-align:center;box-shadow:0 2px 0 rgba(0,0,0,.08)}
+  .pk-status.ok{background:#dff5e3;color:#2f8a47}
+  .pk-status.err{background:#ffe3e3;color:#c43d3d}
+  .pk-actions{display:flex;gap:8px;align-items:center}
+  .pk-link{border:none;background:none;font:inherit;font-size:12.5px;color:#7a6a4f;text-decoration:underline;cursor:pointer;padding:4px 6px}
   @media (prefers-reduced-motion: reduce){
     *{animation:none!important;transition:none!important}
   }

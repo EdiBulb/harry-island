@@ -17,7 +17,7 @@
 | 📺 방송국 | YouTube·Instagram 채널, 근황 |
 | 🪧 추억의 길 | 인생 타임라인 |
 | ⛺ 캠핑장 | 취미 |
-| 📮 우체통 | 방명록 (Supabase) |
+| 📮 우체통 | 방명록 (Supabase) — 편지를 차서 **골키퍼 하리**를 뚫어야 등록되는 승부차기 ⚽ |
 
 - 섬을 탭하면 병아리가 걸어가고, 건물을 탭하면 문 앞까지 가서 안내 시트가 열려요.
 - PC에서는 **방향키 / WASD**로 이동, **Enter**로 입장, **Esc**로 닫기
@@ -32,6 +32,9 @@
 - 이동은 `requestAnimationFrame` 루프 + ref로 처리해 매 프레임 리렌더링을 피함 (`src/hooks/usePlayerMovement.ts`)
 - 걸을 수 있는 영역은 SVG `path.isPointInFill()`로 판정
 - 방명록: **Supabase (Postgres + RLS + rate limit 트리거)**
+- 방명록 승부차기: **Canvas 2D + 원근 투영 + 간단한 물리**, 엔진(`src/game/penaltyKick.ts`)은 React와 분리하고 콜백만 노출
+  - 보내기 전에 검사 → 골이 들어가야 실제 insert, 쓰던 글은 localStorage에 자동 저장
+  - 놓칠수록 키퍼가 느슨해지고(2번 놓치면 물 마시러 감) Enter로 항상 들어가는 자동 슛 — 편지가 사라지는 일은 없게
 - 배포: **GitHub Actions → GitHub Pages**
 
 ## 📁 구조
@@ -41,6 +44,7 @@ src/
 ├─ data/          ← 콘텐츠는 전부 여기! (타입이 있는 TS 파일)
 ├─ components/    ← 섬, 병아리, 건물, 시트, 하리폰, 방명록
 ├─ sections/      ← 건물별 내용 화면
+├─ game/          ← 방명록 승부차기 (React와 분리된 Canvas 엔진)
 ├─ hooks/         ← 이동, 타자기 효과, 오클랜드 시계
 └─ lib/           ← Supabase, 방명록 API, 해시 라우팅
 supabase/schema.sql

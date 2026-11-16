@@ -3,7 +3,7 @@
 > 병아리 하리를 따라 섬을 걸으며, 하리가 걸어온 길과 모아 온 것들을 구경하는
 > 동물의 숲 스타일 온라인 자기소개 웹사이트
 
-**Live:** https://edibulb.github.io/harry-island/
+**Live:** https://island.abracadelulu.com · [Abracadelulu 스펠 #007](https://abracadelulu.com/spells/harry-island)
 
 ## ✨ 기능
 

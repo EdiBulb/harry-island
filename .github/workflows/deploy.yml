@@ -24,11 +24,8 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      # Supabase 공개 설정은 .env.production 에 있어요 (publishable key라 공개 OK)
       - run: npm run build
-        env:
-          # Settings → Secrets and variables → Actions 에 등록
-          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

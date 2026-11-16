@@ -73,10 +73,11 @@ npm run dev
 1. [supabase.com](https://supabase.com)에서 새 프로젝트 생성
 2. **SQL Editor**에 `supabase/schema.sql` 붙여넣고 Run
 3. **Project Settings → API**에서 `Project URL`과 `anon public` 키 복사
-4. 로컬: `.env.local`에 입력 / 배포: GitHub 저장소 **Settings → Secrets and variables → Actions**에
-   `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`로 등록
+4. `.env.production`에 Project URL과 **publishable key**(`sb_publishable_...`)를 넣어 커밋
+   (로컬 개발은 같은 값을 `.env.local`에)
 
-> ⚠️ `anon` 키는 공개돼도 괜찮아요(RLS가 지켜줌). **`service_role` 키는 절대 프론트엔드에 넣지 마세요.**
+> ⚠️ publishable(anon) 키는 빌드된 JS에 어차피 포함되는 공개 키라 커밋해도 괜찮아요 — RLS가 권한을 지켜줘요.
+> **`sb_secret_...` / `service_role` 키는 절대 프론트엔드나 저장소에 넣지 마세요.**
 
 부적절한 편지는 대시보드 Table Editor에서 `is_hidden`을 `true`로 바꾸면 사이트에서 사라져요.
 
